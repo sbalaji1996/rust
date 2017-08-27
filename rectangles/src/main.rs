@@ -1,13 +1,20 @@
-fn main() {
-    let length1 = 50;
-    let width1 = 30;
-
-    println!("The area of the rectangle with width {} and length {} is {}.", 
-             width1,
-             length1,
-             area(length1, width1));
+#[derive(Debug)]
+struct Rectangle {
+    length: u32,
+    width: u32,
 }
 
-fn area(length: u32, width: u32) -> u32 {
-    length * width
+fn main() {
+    let rect1 = Rectangle{length: 50, width: 30};
+
+    println!("rect1 is {:#?}", rect1); 
+
+    println!("The area of the rectangle with width {} and length {} is {}.", 
+             &rect1.width,
+             &rect1.length,
+             area(&rect1));
+}
+
+fn area(rectangle: &Rectangle)-> u32 {
+    rectangle.length * rectangle.width
 }
